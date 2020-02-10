@@ -38,7 +38,7 @@ const ItemBox = (props) => {
     return (
         <div className="border border-dark mr-5 ml-5 text-center">
             <h2 className="text-center mt-4 mb-4 font-weight-bold">{props.item}</h2>
-            <div className="rounded text-center d-inline" Style="margin-left:20px"><ItemCard /></div>
+            <div className="rounded text-center d-inline container" Style="margin-left:20px"><div className="row" Style="text-align:center"><ItemCard /></div></div>
         </div>
     )
 }
@@ -49,7 +49,7 @@ const ItemCard = () => {
     return(
         a.map(a=>{
             return(
-                <div className="card" Style="width: 18rem; margin:10px">
+                <div className="card col-md-4 m-3" Style="max-width: 500px;">
                     <img src="..." className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">Card title</h5>
