@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { IoIosLogIn } from 'react-icons/io';
+import styled, {keyframes,css} from 'styled-components';
+
 
 class topUI extends Component {
     state = {
@@ -14,11 +15,11 @@ class topUI extends Component {
                     <a className="py-2" href="#">
                         <img src="./logo.png" Style="width:100px;height:50px"></img>
                     </a>
-                    <a className="py-2 d-none d-md-inline-block" href="#">소고기</a>
-                    <a className="py-2 d-none d-md-inline-block" href="#">돼지고기</a>
-                    <a className="py-2 d-none d-md-inline-block" href="#">닭&오리</a>
-                    <a className="py-2 d-none d-md-inline-block" Style="color:red" href="#">SALE</a>
-                    <a className="py-2 d-none d-md-inline-block" href="#">연락처</a>
+                    <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" href="#">소고기</a>
+                    <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" href="#">돼지고기</a>
+                    <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" href="#">닭&오리</a>
+                    <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" id="Sale" href="#">SALE</a>
+                    <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" href="#">연락처</a>
                 </div>
             </nav>
         )
