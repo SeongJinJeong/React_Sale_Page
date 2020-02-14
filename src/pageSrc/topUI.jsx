@@ -29,16 +29,16 @@ const WebTopUI = () => {
                 <div className="navbar-collapse collapse" id="navbarsExample07XL">
                 <ul className="navbar-nav mr-auto pr-4 text-center">
                     <li className="nav-item active">
-                        <a className="nav-link font-weight-bold ml-2 mr-2" href="#">돼지고기</a>
+                        <a className="nav-link font-weight-bold ml-2 mr-2" Style="font-size:22px"href="#">돼지고기</a>
                     </li>
                     <li className="nav-item active">
-                        <a className="nav-link font-weight-bold ml-2 mr-2" href="#">소고기</a>
+                        <a className="nav-link font-weight-bold ml-2 mr-2" Style="font-size:22px"href="#">소고기</a>
                     </li>
                     <li className="nav-item active">
-                        <a className="nav-link font-weight-bold ml-2 mr-2" id="Sale" href="#">SALE</a>
+                        <a className="nav-link font-weight-bold ml-2 mr-2" Style="font-size:22px"id="Sale" href="#">SALE</a>
                     </li>
                     <li className="nav-item active">
-                        <a className="nav-link font-weight-bold ml-2 mr-2" href="#">기타</a>
+                        <a className="nav-link font-weight-bold ml-2 mr-2" Style="font-size:22px"href="#">기타</a>
                     </li>
                 </ul>
                 <form className="form-inline row">

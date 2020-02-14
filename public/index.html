@@ -27,17 +27,27 @@
     <style>
       #Sale {
         color:blue;
-       animation: ChangeColor alternate infinite 500ms; 
+       animation: ChangeColor alternate infinite 1000ms; 
        
       }
 
       @keyframes ChangeColor {
-        from{
+        25%{
+          color:blue;
+          transform: scale3d(1.2,1.2,1.2);
+        }
+        50%{
+          color:red;
+          transform: scale3d(1,1,1);
+        }
+        75%{
+          color:blue;
+          transform: scale3d(1.2,1.2,1.2);
           
         }
-        to{
+        100%{
           color:red;
-          transform: scale(1.2);
+          transform: scale3d(1,1,1);
         }
       }
     </style>
