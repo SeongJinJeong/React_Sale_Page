@@ -26,12 +26,12 @@ const Jumbo = () =>{
     return (
         <section className="jumbotron jumbotron-fluid text-center " Style="height : 300px;">
             <div className="container">
-            <h1 className = "font-weight-normal">어서오세요!</h1>
-            <p className="lead text-muted font-weight-light">돼랑이 우랑이는 고객의 입맛에 맞는 고품질의 한우, 한돈을 판매합니다.</p>
-            <p>
-                <a href="#" className="btn btn-danger my-2" Style="margin : 10px;">한우 구매하기</a>
-                <a href="#" className="btn btn-warning my-2">한돈 구매하기</a>
-            </p>
+                <h1 className = "font-weight-normal">어서오세요!</h1>
+                <p className="lead text-muted font-weight-light">돼랑이 우랑이는 고객의 입맛에 맞는 고품질의 한우, 한돈을 판매합니다.</p>
+                <p>
+                    <a href="#" className="btn btn-danger my-2" Style="margin : 10px;">한우 구매하기</a>
+                    <a href="#" className="btn btn-warning my-2">한돈 구매하기</a>
+                </p>
             </div>
         </section>
     );
@@ -40,8 +40,8 @@ const Jumbo = () =>{
 const ItemBox = (props) => {
     return (
         <>
-            <div className="rounded border-dark mr-5 ml-5 text-center">
-                <div className="border-top border-dark">
+            <div className="border-bottom border-dark mr-5 ml-5 text-center">
+                <div>
                     <h4 className="text-center mt-4 mb-4 font-weight-bold" >{props.item}</h4>
                 </div>
                 <div className="rounded text-center d-inline container" Style="margin-left:20px"><div className="row justify-content-center" Style="text-align:center"><ItemCard /></div></div>
