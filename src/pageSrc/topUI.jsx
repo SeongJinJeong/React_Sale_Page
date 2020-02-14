@@ -18,37 +18,43 @@ class topUI extends Component {
 
 const WebTopUI = () => {
     return(
-        <nav className="site-header border-bottom"> 
-    { /* Top Items */}
-            <div className="container d-flex flex-column flex-md-row justify-content-between" Style="font-size:25px;">
-                <a className="py-2" href="#">
-                    <img src="./logo.png" Style="width:100px;height:50px"></img>
-                </a>
-                <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" href="#">소고기</a>
-                <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" href="#">돼지고기</a>
-                <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" href="#">닭&오리</a>
-                <a className="py-2 d-none d-md-inline-block font-weight-bold text-primary" id="Sale" href="#">SALE</a>
-                <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" href="#">연락처</a>
-                <MobileTopUI />
+        <>
+        <nav className="navbar navbar-expand-lg navbar-light ml-5 d-flex justify-content-between">
+            <div className="container pr-4">
+                <a className="navbar-brand" href="#"><img src="./logo.png" Style="width:130px; margin-left:-2em"></img></a>
+                <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
+                    <span className="navbar-toggler-icon"></span>
+                </button>
+
+                <div className="navbar-collapse collapse" id="navbarsExample07XL">
+                <ul className="navbar-nav mr-auto pr-4 text-center">
+                    <li className="nav-item active">
+                        <a className="nav-link font-weight-bold ml-2 mr-2" href="#">돼지고기</a>
+                    </li>
+                    <li className="nav-item active">
+                        <a className="nav-link font-weight-bold ml-2 mr-2" href="#">소고기</a>
+                    </li>
+                    <li className="nav-item active">
+                        <a className="nav-link font-weight-bold ml-2 mr-2" id="Sale" href="#">SALE</a>
+                    </li>
+                    <li className="nav-item active">
+                        <a className="nav-link font-weight-bold ml-2 mr-2" href="#">기타</a>
+                    </li>
+                </ul>
+                <form className="form-inline row">
+                    <input className="form-control col-9" type="text" placeholder="Search" aria-label="Search"></input>
+                    <button className="btn btn-info col-3" type="submit"> 검색 </button>
+                </form>
+                </div>
             </div>
         </nav>
+    </>
     )
 }
 
 const MobileTopUI = () =>{
     return(
-        <div className=" btn-group float-right d-sm-none" Style="width:20px;">
-            <button type="button" className="btn btn-danger dropdown-toggle d-flex justify-content-end" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" Style="width:10%">
-            Action
-            </button>
-            <div className="dropdown-menu">
-            <a className="dropdown-item" href="#">Action</a>
-            <a className="dropdown-item" href="#">Another action</a>
-            <a className="dropdown-item" href="#">Something else here</a>
-            <div className="dropdown-divider"></div>
-            <a className="dropdown-item" href="#">Separated link</a>
-            </div>
-        </div>
+            <a className="py-2 d-sm-none d-inline-flex font-weight-bold text-dark float-right" Style="text-decoration:none; margin-top:-50px" href="#"><span className="navbar-toggler-icon"></span></a>
     )
 }
 

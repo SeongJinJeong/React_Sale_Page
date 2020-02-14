@@ -41,8 +41,8 @@ const ItemBox = (props) => {
     return (
         <>
             <div className="rounded border-success mr-5 ml-5 text-center">
-                <div className="border rounded" Style="background-color: green; color: white">
-                    <h2 className="text-center mt-4 mb-4 font-weight-bold" >{props.item}</h2>
+                <div className="border rounded" Style="background-color: green; color: white;">
+                    <h4 className="text-center mt-4 mb-4 font-weight-bold" >{props.item}</h4>
                 </div>
                 <div className="rounded text-center d-inline container" Style="margin-left:20px"><div className="row justify-content-center" Style="text-align:center"><ItemCard /></div></div>
             </div>
