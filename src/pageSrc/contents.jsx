@@ -14,6 +14,7 @@ class Contents extends Component {
             <>
                 <Jumbo />
                 <ItemBox item={itemList[0]} />
+                <ItemBox item={itemList[1]} />
             </>
         )
     }
@@ -36,21 +37,25 @@ const Jumbo = () =>{
 
 const ItemBox = (props) => {
     return (
-        <div className="border border-dark mr-5 ml-5 text-center">
-            <h2 className="text-center mt-4 mb-4 font-weight-bold">{props.item}</h2>
-            <div className="rounded text-center d-inline container" Style="margin-left:20px"><div className="row" Style="text-align:center"><ItemCard /></div></div>
-        </div>
+        <>
+            <div className="border rounded border-success mr-5 ml-5 text-center">
+                <h2 className="text-center mt-4 mb-4 font-weight-bold">{props.item}</h2>
+                <div className="rounded text-center d-inline container" Style="margin-left:20px"><div className="row justify-content-center" Style="text-align:center"><ItemCard /></div></div>
+            </div>
+            <br />
+            <br />
+        </>
     )
 }
 
 const ItemCard = () => {
 
-    let a = [0,1,2,3,4,5,6,7,8,9];
+    let a = [0,1,2,3,4,5];
     return(
         a.map(a=>{
             return(
-                <div className="card col-md-4 m-3" Style="max-width: 500px;">
-                    <img src="..." className="card-img-top" alt="..." />
+                <div className="card col-md-4 m-3" Style="max-width: 300px;">
+                    <img src="./pork.png" className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">Card title</h5>
                         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
