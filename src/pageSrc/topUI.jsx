@@ -18,7 +18,7 @@ class topUI extends Component {
                     <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" href="#">소고기</a>
                     <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" href="#">돼지고기</a>
                     <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" href="#">닭&오리</a>
-                    <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" id="Sale" href="#">SALE</a>
+                    <a className="py-2 d-none d-md-inline-block font-weight-bold text-primary" id="Sale" href="#">SALE</a>
                     <a className="py-2 d-none d-md-inline-block font-weight-bold text-dark" href="#">연락처</a>
                 </div>
             </nav>
