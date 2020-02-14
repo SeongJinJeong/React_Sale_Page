@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
+import { Gradient } from 'react-gradient';
 
 const itemList = ['돼지고기','소고기','닭&오리','Sale','연락처']
+const gradients = ["##0CCD3E","8EE786","5FFBC5"];
 
 
 class Contents extends Component {
@@ -22,7 +24,7 @@ class Contents extends Component {
 
 const Jumbo = () =>{
     return (
-        <section className="jumbotron jumbotron-fluid text-center" Style="height : 300px;">
+        <section className="jumbotron jumbotron-fluid text-center " Style="height : 300px;">
             <div className="container">
             <h1 className = "font-weight-normal">어서오세요!</h1>
             <p className="lead text-muted font-weight-light">돼랑이 우랑이는 고객의 입맛에 맞는 고품질의 한우, 한돈을 판매합니다.</p>
@@ -38,8 +40,10 @@ const Jumbo = () =>{
 const ItemBox = (props) => {
     return (
         <>
-            <div className="border rounded border-success mr-5 ml-5 text-center">
-                <h2 className="text-center mt-4 mb-4 font-weight-bold">{props.item}</h2>
+            <div className="rounded border-success mr-5 ml-5 text-center">
+                <div className="border rounded" Style="background-color: green; color: white">
+                    <h2 className="text-center mt-4 mb-4 font-weight-bold" >{props.item}</h2>
+                </div>
                 <div className="rounded text-center d-inline container" Style="margin-left:20px"><div className="row justify-content-center" Style="text-align:center"><ItemCard /></div></div>
             </div>
             <br />
