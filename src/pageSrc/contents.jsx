@@ -16,7 +16,7 @@ class Contents extends Component {
             <>
                 <Jumbo />
                 <ItemBox item={itemList[0]} />
-                <ItemBox item={itemList[1]} />
+                <ItemBox item={itemList[1]} lastItemBox />
             </>
         )
     }
@@ -24,10 +24,10 @@ class Contents extends Component {
 
 const Jumbo = () =>{
     return (
-        <section className="jumbotron jumbotron-fluid text-center " Style="height : 300px;">
+        <section className="jumbotron jumbotron-fluid text-center " Style="height : 300px;background-image:url('./JumboImage.jpg');background-position:center center;">
             <div className="container">
-                <h1 className = "font-weight-normal">어서오세요!</h1>
-                <p className="lead text-muted font-weight-light">돼랑이 우랑이는 고객의 입맛에 맞는 고품질의 한우, 한돈을 판매합니다.</p>
+                <h1 className = "font-weight-normal" Style="color:white">어서오세요!</h1>
+                <p className="lead font-weight-light" Style="color:white">돼랑이 우랑이는 고객의 입맛에 맞는 고품질의 한우, 한돈을 판매합니다.</p>
                 <p>
                     <a href="#" className="btn btn-danger my-2" Style="margin : 10px;">한우 구매하기</a>
                     <a href="#" className="btn btn-warning my-2">한돈 구매하기</a>
@@ -40,7 +40,7 @@ const Jumbo = () =>{
 const ItemBox = (props) => {
     return (
         <>
-            <div className="border-bottom border-dark mr-5 ml-5 text-center">
+            <div className={props.lastItemBox ? "border-dark mr-5 ml-5 text-center":"border-bottom border-dark mr-5 ml-5 text-center"} >
                 <div>
                     <h4 className="text-center mt-4 mb-4 font-weight-bold" >{props.item}</h4>
                 </div>
