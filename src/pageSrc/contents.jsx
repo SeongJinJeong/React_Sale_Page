@@ -24,7 +24,7 @@ class Contents extends Component {
 
 const Jumbo = () =>{
     return (
-        <section className="jumbotron jumbotron-fluid text-center " Style="height : 300px;background-image:url('./JumboImage.jpg');background-position:center center;">
+        <section className="jumbotron jumbotron-fluid text-center " Style="height : 300px;background-image:url('./scriptImage/JumboImage.jpg');background-position:center center;">
             <div className="container">
                 <h1 className = "font-weight-normal" Style="color:white">어서오세요!</h1>
                 <p className="lead font-weight-light" Style="color:white">돼랑이 우랑이는 고객의 입맛에 맞는 고품질의 한우, 한돈을 판매합니다.</p>
@@ -59,7 +59,7 @@ const ItemCard = () => {
         a.map(a=>{
             return(
                 <div className="card col-md-4 m-3" Style="max-width: 300px;">
-                    <img src="./pork.png" className="card-img-top" alt="..." />
+                    <img src="./scriptImage/pork.png" className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">Card title</h5>
                         <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>

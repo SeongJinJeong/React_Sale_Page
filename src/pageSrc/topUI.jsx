@@ -21,7 +21,7 @@ const WebTopUI = () => {
         <>
         <nav className="navbar navbar-expand-lg navbar-light ml-5 d-flex justify-content-between">
             <div className="container pr-4">
-                <a className="navbar-brand" href="#"><img src="./logo.png" Style="width:130px; margin-left:-2em"></img></a>
+                <a className="navbar-brand" href="#"><img src="./scriptImage/logo.png" Style="width:130px; margin-left:-2em"></img></a>
                 <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
