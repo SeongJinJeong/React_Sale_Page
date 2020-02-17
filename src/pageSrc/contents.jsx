@@ -24,12 +24,12 @@ class Contents extends Component {
 
 const Jumbo = () =>{
     return (
-        <section className="jumbotron jumbotron-fluid text-center " Style="height : 300px;background-image:url('./scriptImage/JumboImage.jpg');background-position:center center;">
+        <section className="jumbotron jumbotron-fluid text-center " style={jumboImg} >
             <div className="container">
-                <h1 className = "font-weight-normal" Style="color:white">어서오세요!</h1>
-                <p className="lead font-weight-light" Style="color:white">돼랑이 우랑이는 고객의 입맛에 맞는 고품질의 한우, 한돈을 판매합니다.</p>
+                <h1 className = "font-weight-normal" style={jumboColor}>어서오세요!</h1>
+                <p className="lead font-weight-light" style={jumboColor}>돼랑이 우랑이는 고객의 입맛에 맞는 고품질의 한우, 한돈을 판매합니다.</p>
                 <p>
-                    <a href="#" className="btn btn-danger my-2" Style="margin : 10px;">한우 구매하기</a>
+                    <a href="#" className="btn btn-danger my-2 mx-3">한우 구매하기</a>
                     <a href="#" className="btn btn-warning my-2">한돈 구매하기</a>
                 </p>
             </div>
@@ -44,7 +44,7 @@ const ItemBox = (props) => {
                 <div>
                     <h4 className="text-center mt-4 mb-4 font-weight-bold" >{props.item}</h4>
                 </div>
-                <div className="rounded text-center d-inline container" Style="margin-left:20px"><div className="row justify-content-center" Style="text-align:center"><ItemCard /></div></div>
+                <div className="rounded text-center d-inline container ml-4"><div className="row justify-content-center text-center"><ItemCard /></div></div>
             </div>
             <br />
             <br />
@@ -58,7 +58,7 @@ const ItemCard = () => {
     return(
         a.map(a=>{
             return(
-                <div className="card col-md-4 m-3" Style="max-width: 300px;">
+                <div className="card col-md-4 m-3" style={itemCardWidth}>
                     <img src="./scriptImage/pork.png" className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">Card title</h5>
@@ -69,6 +69,20 @@ const ItemCard = () => {
             )
         })
     )
+}
+
+const jumboImg = {
+    "height" : "300px",
+    "backgroundImage":"url('./scriptImage/JumboImage.jpg')",
+    "backgroundPosition":"center center"
+}
+
+const jumboColor = {
+    "color" : "white"
+}
+
+const itemCardWidth = {
+    "maxWidth":"300px"
 }
 
 export default Contents;
