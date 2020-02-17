@@ -56,9 +56,9 @@ const ItemCard = () => {
 
     let a = [0,1,2,3,4,5];
     return(
-        a.map(a=>{
+        a.map((a,index)=>{
             return(
-                <div className="card col-md-4 m-3" style={itemCardWidth}>
+                <div className="card col-md-4 m-3" style={itemCardWidth} key={index}>
                     <img src="./scriptImage/pork.png" className="card-img-top" alt="..." />
                     <div className="card-body">
                         <h5 className="card-title">Card title</h5>
