@@ -5,18 +5,38 @@ import styled, {keyframes,css} from 'styled-components';
 class topUI extends Component {
     state = {
         loginStatus : false,
+        dump : '',
+    };
+
+    componentDidMount(){
+        this.callApi()
+        .then(res=>{this.setState({
+            loginStatus : false,
+            dump : res
+        })})
+        .catch(error=>{console.log(error)})
+    }
+
+    callApi = async () =>{
+        const response = await fetch('/api/hello');
+        const data = response.json();
+        if(response.status !== 200) throw Error(data.message)
+
+        return data;
     }
 
     render (){
+        const responseData = this.state;
+        console.log(responseData.dump.express)
         return (
             <>
-                <WebTopUI />
+                <WebTopUI data = {responseData}/>
             </>
         )
     }
 }
 
-const WebTopUI = () => {
+const WebTopUI = (props) => {
     return(
         <>
         <nav className="navbar navbar-expand-lg navbar-light ml-5 d-flex justify-content-between">
@@ -42,7 +62,7 @@ const WebTopUI = () => {
                     </li>
                 </ul>
                 <form className="form-inline row">
-                    <input className="form-control col-9" type="text" placeholder="Search" aria-label="Search"></input>
+                    <input className="form-control col-9" type="text" placeholder={props.data.dump.express} aria-label="Search"></input>
                     <button className="btn btn-info col-3" type="submit"> 검색 </button>
                 </form>
                 </div>
