@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled, {keyframes,css} from 'styled-components';
+import { StateConsumer } from '../Store';
 
 
 class topUI extends Component {
@@ -27,10 +28,10 @@ class topUI extends Component {
 
     render (){
         const responseData = this.state;
-        console.log(responseData.dump.express)
+        // console.log(responseData.dump.express)
         return (
             <>
-                <WebTopUI data = {responseData}/>
+                <WebTopUI data = {responseData} />
             </>
         )
     }
@@ -58,7 +59,7 @@ const WebTopUI = (props) => {
                         <a className="nav-link font-weight-bold ml-2 mr-2" style={navFont} id="Sale" href="#">SALE</a>
                     </li>
                     <li className="nav-item active">
-                        <a className="nav-link font-weight-bold ml-2 mr-2" style={navFont} href="#">기타</a>
+                        <a className="nav-link font-weight-bold ml-2 mr-2" style={navFont} href="#">{placeholderFunction()}</a>
                     </li>
                 </ul>
                 <form className="form-inline row">
@@ -69,6 +70,23 @@ const WebTopUI = (props) => {
             </div>
         </nav>
     </>
+    )
+}
+
+const placeholderFunction = () =>{
+    return(
+        <StateConsumer>
+            {
+                (data)=>{
+                    if(data.state.curPage === "main"){
+                        console.log("dd")
+                        return "GGGG";
+                    }else{
+                        return "FFFF";
+                    }
+                }
+            }
+        </StateConsumer>
     )
 }
 
