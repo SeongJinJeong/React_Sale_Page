@@ -140,9 +140,10 @@ const RenderByItemList = (props) =>{
 // Styles Apply By Object
 
 const jumboImg = {
-    "height" : "300px",
+    "height" : "320px",
     "backgroundImage":"url('./scriptImage/JumboImage.jpg')",
-    "backgroundPosition":"center center"
+    "backgroundSize" : "120%",
+    "backgroundPosition":"10% 30%"
 }
 
 const jumboColor = {
