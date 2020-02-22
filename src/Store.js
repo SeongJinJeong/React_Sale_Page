@@ -7,7 +7,7 @@ const {Provider,Consumer: StateConsumer} = Store;
 class StateProvider extends Component {
 
     state={
-        curPage : "else",
+        curPage : "main",
     }
 
     action ={

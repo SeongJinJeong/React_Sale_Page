@@ -35,10 +35,12 @@ class topUI extends Component {
     }
 }
 
+// Render Whole Top UI
+
 const WebTopUI = (props) => {
     return(
         <>
-        <nav className="navbar navbar-expand-lg navbar-light ml-5 d-flex justify-content-between">
+        <nav className="navbar navbar-expand-lg navbar-light pl-5 d-flex justify-content-between border-dark border-bottom" style={WebTopUIStyle}>
             <div className="container pr-4">
                 <a className="navbar-brand" href="#"><img src="./scriptImage/logo.png" alt="LOGO"style={navLogo}></img></a>
                 <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,6 +65,8 @@ const WebTopUI = (props) => {
     )
 }
 
+// Render Menu List By Map Func
+
 const MenuList = (e) =>{
     if(e==="sale"){
         return (
@@ -80,23 +84,7 @@ const MenuList = (e) =>{
     
 }
 
-// const placeholderFunction = () =>{
-//     return(
-//         <StateConsumer>
-//             {
-//                 (data)=>{
-//                     if(data.state.curPage === "main"){
-//                         console.log("dd")
-//                         return "GGGG";
-//                     }else{
-//                         return "FFFF";
-//                     }
-//                 }
-//             }
-//         </StateConsumer>
-//     )
-// }
-
+// Styles Apply By Object
 
 const navFont = {
     "fontSize":"22px"
@@ -105,6 +93,10 @@ const navFont = {
 const navLogo = {
     "width":"130px",
     "marginLeft":"-2em"
+}
+
+const WebTopUIStyle = {
+    "background-color" : "#fff"
 }
 
 export default topUI;

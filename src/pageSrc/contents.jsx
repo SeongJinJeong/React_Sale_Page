@@ -44,9 +44,9 @@ const Jumbo = (e) =>{
 const ItemBox = (props) => {
     return (
         <>
-            <div className={props.lastItemBox ? "border-dark mr-5 ml-5 text-center":"border-bottom border-dark mr-5 ml-5 text-center"} >
+            <div className={props.lastItemBox ? "border-dark mr-5 ml-5 text-center":"border-dark mr-5 ml-5 text-center"} style={itemBoxStyle} >
                 <div>
-                    <h4 className="text-center mt-4 mb-4 font-weight-bold" >{props.item}</h4>
+                    <h2 className="text-center font-weight-bold pt-5" style={itemBoxTitle}>{props.item}</h2>
                 </div>
                 <div className="rounded text-center d-inline container ml-4"><div className="row justify-content-center text-center"><ItemCard /></div></div>
             </div>
@@ -151,6 +151,15 @@ const jumboColor = {
 
 const itemCardWidth = {
     "maxWidth":"300px"
+}
+
+const itemBoxStyle = {
+    "background-color" : "#fff",
+    "margin-top,margin-bottom" : "0px"
+}
+
+const itemBoxTitle = {
+    "color" : "#2b2b28"
 }
 
 export default Contents;
