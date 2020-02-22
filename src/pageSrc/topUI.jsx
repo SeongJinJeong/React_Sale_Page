@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import styled, {keyframes,css} from 'styled-components';
-import { StateConsumer } from '../Store';
 
 
 class topUI extends Component {
@@ -42,25 +40,17 @@ const WebTopUI = (props) => {
         <>
         <nav className="navbar navbar-expand-lg navbar-light ml-5 d-flex justify-content-between">
             <div className="container pr-4">
-                <a className="navbar-brand" href="#"><img src="./scriptImage/logo.png" style={navLogo}></img></a>
+                <a className="navbar-brand" href="#"><img src="./scriptImage/logo.png" alt="LOGO"style={navLogo}></img></a>
                 <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
 
                 <div className="navbar-collapse collapse" id="navbarsExample07XL">
                 <ul className="navbar-nav mr-auto pr-4 text-center">
-                    <li className="nav-item active">
-                        <a className="nav-link font-weight-bold ml-2 mr-2" style={navFont} href="#">돼지고기</a>
-                    </li>
-                    <li className="nav-item active">
-                        <a className="nav-link font-weight-bold ml-2 mr-2" style={navFont} href="#">소고기</a>
-                    </li>
-                    <li className="nav-item active">
-                        <a className="nav-link font-weight-bold ml-2 mr-2" style={navFont} id="Sale" href="#">SALE</a>
-                    </li>
-                    <li className="nav-item active">
-                        <a className="nav-link font-weight-bold ml-2 mr-2" style={navFont} href="#">{placeholderFunction()}</a>
-                    </li>
+                    {MenuList("돼지고기")}
+                    {MenuList("돼지고기")}
+                    {MenuList("sale")}
+                    {MenuList("기타")}
                 </ul>
                 <form className="form-inline row">
                     <input className="form-control col-9" type="text" placeholder={props.data.dump.express} aria-label="Search"></input>
@@ -73,22 +63,39 @@ const WebTopUI = (props) => {
     )
 }
 
-const placeholderFunction = () =>{
-    return(
-        <StateConsumer>
-            {
-                (data)=>{
-                    if(data.state.curPage === "main"){
-                        console.log("dd")
-                        return "GGGG";
-                    }else{
-                        return "FFFF";
-                    }
-                }
-            }
-        </StateConsumer>
-    )
+const MenuList = (e) =>{
+    if(e==="sale"){
+        return (
+            <li className="nav-item active">
+                <a className="nav-link font-weight-bold ml-2 mr-2" style={navFont} id="Sale" href="#">SALE</a>
+            </li>
+        )
+    }else{
+        return(
+            <li className="nav-item active">
+                <a className="nav-link font-weight-bold ml-2 mr-2" style={navFont} href="#">{e}</a>
+            </li>
+        )
+    }
+    
 }
+
+// const placeholderFunction = () =>{
+//     return(
+//         <StateConsumer>
+//             {
+//                 (data)=>{
+//                     if(data.state.curPage === "main"){
+//                         console.log("dd")
+//                         return "GGGG";
+//                     }else{
+//                         return "FFFF";
+//                     }
+//                 }
+//             }
+//         </StateConsumer>
+//     )
+// }
 
 
 const navFont = {

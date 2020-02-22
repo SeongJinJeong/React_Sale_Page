@@ -1,28 +1,30 @@
 import React, { Component } from 'react';
-import { Gradient } from 'react-gradient';
+import {StateConsumer} from '../Store';
 
 const itemList = ['돼지고기','소고기','닭&오리','Sale','연락처']
-const gradients = ["##0CCD3E","8EE786","5FFBC5"];
-
 
 class Contents extends Component {
-
-    state={
-        
-    }
 
     render(){
         return(
             <>
-                <Jumbo />
-                <ItemBox item={itemList[0]} />
-                <ItemBox item={itemList[1]} lastItemBox />
+                <StateConsumer>
+                    {
+                        (data)=>{
+                            const e = data.state.curPage;
+                            console.log(e);
+                            return <RenderByItemList curPage = {e}/>
+                        }
+                    }
+                </StateConsumer>
             </>
         )
     }
 }
 
-const Jumbo = () =>{
+// Jumbo Card Image
+
+const Jumbo = (e) =>{
     return (
         <section className="jumbotron jumbotron-fluid text-center " style={jumboImg} >
             <div className="container">
@@ -36,6 +38,8 @@ const Jumbo = () =>{
         </section>
     );
 }
+
+// Product List
 
 const ItemBox = (props) => {
     return (
@@ -51,6 +55,8 @@ const ItemBox = (props) => {
         </>
     )
 }
+
+// Render each product
 
 const ItemCard = () => {
 
@@ -70,6 +76,68 @@ const ItemCard = () => {
         })
     )
 }
+
+// Different Render by Current Page
+
+const RenderByItemList = (props) =>{
+    const e = props.curPage;
+    switch(e){
+        case "main": {
+            return(
+                <>
+                    <Jumbo />
+                    <ItemBox item={itemList[0]} />
+                    <ItemBox item={itemList[1]} lastItemBox /> 
+                </>
+            )
+        }
+        case "pork" : {
+            return(
+                <>
+                    <ItemBox item={itemList[0]} />
+                    {/* <ItemBox item={itemList[1]} lastItemBox /> */}
+                </>
+            )
+        }
+        case "beef" : {
+            return(
+                <>
+                    {/* <ItemBox item={itemList[0]} /> */}
+                    <ItemBox item={itemList[1]} lastItemBox />
+                </>
+            )
+        }
+        case "sale" : {
+            return(
+                <>
+                    {/* <ItemBox item={itemList[0]} /> */}
+                    <ItemBox item={itemList[1]} lastItemBox />
+                </>
+            )
+        }
+        case "else" : {
+            return(
+                <>
+                    <ItemBox item={itemList[0]} />
+                    <ItemBox item={itemList[1]} lastItemBox />
+                </>
+            )
+        }
+        default:{
+            return(
+                <>
+                    <Jumbo />
+                    <ItemBox item={itemList[0]} />
+                    <ItemBox item={itemList[1]} lastItemBox /> 
+                </>
+            )
+        }
+    }
+}
+
+
+
+// Styles Apply By Object
 
 const jumboImg = {
     "height" : "300px",
