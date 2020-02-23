@@ -1,17 +1,17 @@
 import React from 'react';
-import TopUI from './pageSrc/topUI';
-import Contents from './pageSrc/contents';
-import Footer from './pageSrc/footer';
+import Routes from './Routes';
 import {StateProvider} from './Store';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 
 function App() {
   return (
     <>
-      <StateProvider>
-        <TopUI />
-        <Contents />
-        <Footer />
-      </StateProvider>
+      <Router>
+        <StateProvider>
+          <Routes />
+        </StateProvider>
+      </Router>
     </>
   )
 }

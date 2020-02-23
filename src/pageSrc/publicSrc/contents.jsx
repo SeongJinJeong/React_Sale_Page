@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {StateConsumer} from '../Store';
+import {StateConsumer} from '../../Store';
 
 const itemList = ['돼지고기','소고기','닭&오리','Sale','연락처']
 

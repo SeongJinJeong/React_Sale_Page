@@ -1,11 +1,31 @@
 import React, { Component } from 'react';
+import {StateConsumer} from '../../Store';
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+
 
 
 class topUI extends Component {
+    constructor(props){
+        super(props);
+        this.state = {
+            loginStatus : false,
+            dump : '',
+            curPage : '',
+        };
+
+        this.handleClick = this.handleClick.bind(this)
+    }
     state = {
         loginStatus : false,
         dump : '',
+        curPage : '',
     };
+
+    handleClick = (menu) => {
+        this.setState({
+            curPage : menu
+        })
+    }   
 
     componentDidMount(){
         this.callApi()
@@ -42,7 +62,7 @@ const WebTopUI = (props) => {
         <>
         <nav className="navbar navbar-expand-lg navbar-light pl-5 d-flex justify-content-between border-dark border-bottom" style={WebTopUIStyle}>
             <div className="container pr-4">
-                <a className="navbar-brand" href="/"><img src="./scriptImage/logo.png" alt="LOGO"style={navLogo}></img></a>
+                <Link to="/"><img src="./scriptImage/logo.png" alt="LOGO"style={navLogo}></img></Link>
                 <button className="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarsExample07XL" aria-controls="navbarsExample07XL" aria-expanded="false" aria-label="Toggle navigation">
                     <span className="navbar-toggler-icon"></span>
                 </button>
@@ -67,7 +87,7 @@ const WebTopUI = (props) => {
 
 // Render Menu List By Map Func
 
-const MenuList = (e) =>{
+const MenuList = (e,data) =>{
     let menu = '';
     switch(e){
         case "소고기" : menu= "beef"; break;
@@ -78,23 +98,27 @@ const MenuList = (e) =>{
     if(e==="sale"){
         return (
             <li className="nav-item active">
-                <a className="nav-link font-weight-bold ml-2 mr-2" style={navFont} id="Sale" href={`/${menu}`}>{e.toUpperCase()}</a>
+                <Link to={menu} className="nav-link font-weight-bold ml-2 mr-2" style={navFont} id="Sale">{e.toUpperCase()}</Link>
             </li>
         )
     }else{
         return(
             <li className="nav-item active">
-                <a className="nav-link font-weight-bold ml-2 mr-2" style={navFont} href={`/${menu}`}>{e}</a>
+                <Link to={menu} className="nav-link font-weight-bold ml-2 mr-2" style={navFont}>{e}</Link>
             </li>
         )
     }
     
 }
 
+
+
+
 // Styles Apply By Object
 
 const navFont = {
-    "fontSize":"22px"
+    "fontSize":"22px",
+    "textDecoration":"none"
 };
 
 const navLogo = {
@@ -103,7 +127,7 @@ const navLogo = {
 }
 
 const WebTopUIStyle = {
-    "background-color" : "#fff"
+    "backgroundColor" : "#fff"
 }
 
 export default topUI;
