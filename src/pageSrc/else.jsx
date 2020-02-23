@@ -7,7 +7,7 @@ function Else(){
     return(
         <>
             <TopUI />
-            <Contents />
+            <Contents curPage="else"/>
             <Footer />
         </>
     )

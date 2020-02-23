@@ -6,17 +6,10 @@ const itemList = ['돼지고기','소고기','닭&오리','Sale','연락처']
 class Contents extends Component {
 
     render(){
+        console.log(this.props.curPage);
         return(
             <>
-                <StateConsumer>
-                    {
-                        (data)=>{
-                            const e = data.state.curPage;
-                            console.log(e);
-                            return <RenderByItemList curPage = {e}/>
-                        }
-                    }
-                </StateConsumer>
+                <RenderByItemList curPage={this.props.curPage}/>
             </>
         )
     }
@@ -24,7 +17,7 @@ class Contents extends Component {
 
 // Jumbo Card Image
 
-const Jumbo = (e) =>{
+const Jumbo = () =>{
     return (
         <section className="jumbotron jumbotron-fluid text-center " style={jumboImg} >
             <div className="container">

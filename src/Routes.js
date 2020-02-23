@@ -9,7 +9,7 @@ import Main from './pageSrc/main';
 const Routes = () =>{
     return(
         <Router>
-            <Route path="/" component={Main} />
+            <Route exact path="/" component={Main} />
             <Route path="/beef" component={Beef} />
             <Route path="/pork" component={Pork} />
             <Route path="/sale" component={Sale} />

@@ -7,7 +7,7 @@ function Pork(){
     return(
         <>
             <TopUI />
-            <Contents />
+            <Contents curPage="pork"/>
             <Footer />
         </>
     )

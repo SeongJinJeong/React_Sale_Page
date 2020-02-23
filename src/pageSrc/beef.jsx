@@ -7,7 +7,7 @@ function Beef(){
     return(
         <>
             <TopUI />
-            <Contents />
+            <Contents curPage = "beef"/>
             <Footer />
         </>
     )

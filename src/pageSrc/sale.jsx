@@ -7,7 +7,7 @@ function Sale(){
     return(
         <>
             <TopUI />
-            <Contents />
+            <Contents curPage="sale"/>
             <Footer />
         </>
     )

@@ -11,7 +11,7 @@ class StateProvider extends Component {
     }
 
     action ={
-        pageChange : (e)=>{
+        changePage : (e)=>{
             this.setState({
                 curPage : e
             })

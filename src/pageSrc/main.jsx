@@ -7,7 +7,7 @@ function Main(){
     return(
         <>
             <TopUI />
-            <Contents />
+            <Contents curPage="main"/>
             <Footer />
         </>
     )
