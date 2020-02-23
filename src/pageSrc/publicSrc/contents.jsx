@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import {StateConsumer} from '../../Store';
 
 const itemList = ['돼지고기','소고기','닭&오리','Sale','연락처']
 
@@ -24,8 +23,8 @@ const Jumbo = () =>{
                 <h1 className = "font-weight-normal" style={jumboColor}>어서오세요!</h1>
                 <p className="lead font-weight-light" style={jumboColor}>돼랑이 우랑이는 고객의 입맛에 맞는 고품질의 한우, 한돈을 판매합니다.</p>
                 <p>
-                    <a href="#" className="btn btn-danger my-2 mx-3">한우 구매하기</a>
-                    <a href="#" className="btn btn-warning my-2">한돈 구매하기</a>
+                    <a href="/beef" className="btn btn-danger my-2 mx-3">한우 구매하기</a>
+                    <a href="/pork" className="btn btn-warning my-2">한돈 구매하기</a>
                 </p>
             </div>
         </section>
@@ -60,9 +59,9 @@ const ItemCard = () => {
                 <div className="card col-md-4 m-3" style={itemCardWidth} key={index}>
                     <img src="./scriptImage/pork.png" className="card-img-top" alt="..." />
                     <div className="card-body">
-                        <h5 className="card-title">Card title</h5>
-                        <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                        <a href="#" className="btn btn-primary">Go somewhere</a>
+                        <h5 className="card-title"><b>삼겹살</b></h5>
+                        <p className="card-text">가격 : 8,000 ₩ <br />등급 : 1++</p>
+                        <a href="/" className="btn btn-primary">상품 보기</a>
                     </div>
                 </div>
             )
@@ -148,8 +147,8 @@ const itemCardWidth = {
 }
 
 const itemBoxStyle = {
-    "background-color" : "#fff",
-    "margin-top,margin-bottom" : "0px"
+    "backgroundColor" : "#fff",
+    "marginTop,marginBottom" : "0px"
 }
 
 const itemBoxTitle = {

@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
+import { BrowserRouter as Router, Route} from 'react-router-dom'
 import Beef from './pageSrc/beef';
 import Else from './pageSrc/else';
 import Pork from './pageSrc/pork';

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {StateConsumer} from '../../Store';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
-
-
 
 class topUI extends Component {
     constructor(props){
