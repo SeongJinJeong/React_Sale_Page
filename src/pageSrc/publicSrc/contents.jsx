@@ -4,22 +4,22 @@ const itemList = ["돼지고기", "소고기", "닭&오리", "Sale", "연락처"
 
 class Contents extends Component {
   state = {
-    productData : "",
+    productData: ""
   };
 
   componentDidMount() {
     this._callAPI()
       .then(res => {
         this.setState({
-          productData : res
+          productData: res
         });
       })
       .catch(error => {
         console.log(error);
         this.setState({
           ...this.state,
-          isError : true
-        })
+          isError: true
+        });
       });
   }
 
@@ -33,10 +33,13 @@ class Contents extends Component {
 
   render() {
     const stateData = this.state;
-    console.log(stateData.productData.test)
+    console.log(stateData.productData.test);
     return (
       <>
-        <RenderByItemList curPage={this.props.curPage} data={stateData.productData} />
+        <RenderByItemList
+          curPage={this.props.curPage}
+          data={stateData.productData}
+        />
       </>
     );
   }
@@ -73,6 +76,16 @@ const Jumbo = () => {
 // Product List
 
 const ItemBox = props => {
+  const titleName = (name) =>{
+    switch (name) {
+      case "beef": return "소고기";
+      case "pork" : return "돼지고기";
+      case "sale" : return "SALE";
+      case "other" : return "기타";
+      default:
+        break;
+    }
+  }
   return (
     <>
       <div
@@ -88,12 +101,12 @@ const ItemBox = props => {
             className="text-center font-weight-bold pt-5"
             style={itemBoxTitle}
           >
-            {props.item}
+            {titleName(props.item.name)}
           </h2>
         </div>
         <div className="rounded text-center d-inline container ml-4">
           <div className="row justify-content-center text-center">
-            <ItemCard />
+            <ItemCard data={props.item.data}/>
           </div>
         </div>
       </div>
@@ -105,9 +118,10 @@ const ItemBox = props => {
 
 // Render each product
 
-const ItemCard = () => {
+const ItemCard = (props) => {
   let a = [0, 1, 2, 3, 4, 5];
   return a.map((a, index) => {
+    console.log(a)
     return (
       <div className="card col-md-4 m-3" style={itemCardWidth} key={index}>
         <img src="./scriptImage/pork.png" className="card-img-top" alt="..." />
@@ -133,6 +147,7 @@ const ItemCard = () => {
 const RenderByItemList = props => {
   const e = props.curPage;
   const data = props.data;
+  console.log("renderbyitemList", data.data);
   switch (e) {
     case "main": {
       return (
@@ -152,11 +167,11 @@ const RenderByItemList = props => {
       );
     }
     case "beef": {
-      return (
-        <>
-          <ItemBox item={itemList[1]} lastItemBox />
-        </>
-      );
+        return(
+          <>
+            <ItemBox item={data} lastItemBox />
+          </>
+        )
     }
     case "sale": {
       return (
@@ -173,7 +188,7 @@ const RenderByItemList = props => {
           <ItemBox item={itemList[1]} lastItemBox />
         </>
       );
-    }
+    };
     default: {
       return (
         <>
