@@ -1,35 +1,28 @@
-import React, { Component } from 'react'
+import React, { Component } from "react";
 
 const Store = React.createContext();
 
-const {Provider,Consumer: StateConsumer} = Store;
+const { Provider, Consumer: StateConsumer } = Store;
 
 class StateProvider extends Component {
+  state = {
+    curPage: "main"
+  };
 
-    state={
-        curPage : "main",
+  action = {
+    changePage: e => {
+      this.setState({
+        curPage: e
+      });
     }
+  };
 
-    action ={
-        changePage : (e)=>{
-            this.setState({
-                curPage : e
-            })
-        }
-    };
+  render() {
+    const { state, action } = this;
+    const value = { state, action };
 
-    render(){
-
-        const { state,action} = this;
-        const value = {state,action}
-
-        return(
-            <Provider value={value}>
-                {this.props.children}
-            </Provider>
-        )
-    }
-
+    return <Provider value={value}>{this.props.children}</Provider>;
+  }
 }
 
-export {StateProvider,StateConsumer};
+export { StateProvider, StateConsumer };
