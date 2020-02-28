@@ -84,7 +84,7 @@ const WebTopUI = props => {
               <input
                 className="form-control col-9"
                 type="text"
-                placeholder={props.data.dump.express}
+                placeholder="검색어를 입력하세요"
                 aria-label="Search"
               ></input>
               <button className="btn btn-info col-3" type="submit">

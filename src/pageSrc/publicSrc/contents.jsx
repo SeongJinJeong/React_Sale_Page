@@ -35,12 +35,19 @@ class Contents extends Component {
 
   render() {
     const { productData, error } = this.state;
-    console.log("In the Render : [state] =", productData,"[props] = ",this.props.curPage);
+    console.log(
+      "In the Render : [state] =",
+      productData,
+      "[props] = ",
+      this.props.curPage
+    );
 
     if (productData && productData.length) {
-      return <RenderByItemList curPage={this.props.curPage} data={productData} />;
+      return (
+        <RenderByItemList curPage={this.props.curPage} data={productData} />
+      );
     } else {
-      return !!error || "loading";
+      return !!error || <div style={loadingStyle}>LOADING</div>;
     }
   }
 }
@@ -76,7 +83,6 @@ const Jumbo = () => {
 // Product List
 
 const ItemBox = props => {
-
   const titleName = name => {
     switch (name) {
       case "beef":
@@ -84,7 +90,7 @@ const ItemBox = props => {
       case "pork":
         return "돼지고기";
       case "sale":
-        return "SALE";
+        return <p id="Sale">SALE</p>;
       case "else":
         return "기타";
       default:
@@ -157,39 +163,40 @@ const RenderByItemList = props => {
       return (
         <>
           <Jumbo />
-          <ItemBox data={props.data} curPage = {props.curPage} />
-          <ItemBox data={props.data} curPage = {props.curPage} lastItemBox />
+          <ItemBox data={props.data} curPage={props.curPage} />
+          <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
         </>
       );
     }
     case "pork": {
       return (
         <>
-          <ItemBox data={props.data} curPage = {props.curPage} />
-          <ItemBox data={props.data} curPage = {props.curPage} />
+          <ItemBox data={props.data} curPage={props.curPage} />
+          <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
         </>
       );
     }
     case "beef": {
       return (
         <>
-          <ItemBox data={props.data} curPage = {props.curPage} lastItemBox />
+          <ItemBox data={props.data} curPage={props.curPage} />
+          <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
         </>
       );
     }
     case "sale": {
       return (
         <>
-          {/* <ItemBox item={itemList[0]} /> */}
-          <ItemBox data={props.data} curPage = {props.curPage} lastItemBox/>
+          <ItemBox data={props.data} curPage={props.curPage} />
+          <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
         </>
       );
     }
     case "else": {
       return (
         <>
-          <ItemBox data={props.data} curPage = {props.curPage} />
-          <ItemBox data={props.data} curPage = {props.curPage} lastItemBox/>
+          <ItemBox data={props.data} curPage={props.curPage} />
+          <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
         </>
       );
     }
@@ -205,12 +212,18 @@ const RenderByItemList = props => {
   }
 };
 
+// Give comma to numbers
+
 function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
-
 // Styles Apply By Object
+
+const loadingStyle = {
+  textAlign : "center",
+  fontWeight : "bold"
+}
 
 const jumboImg = {
   height: "320px",
