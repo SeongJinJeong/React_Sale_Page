@@ -1,24 +1,26 @@
 import React, { Component } from "react";
 
 const itemList = ["돼지고기", "소고기", "닭&오리", "Sale", "연락처"];
-
 class Contents extends Component {
   state = {
-    productData: ""
+    productData: [],
+    error: null
   };
 
   componentDidMount() {
     this._callAPI()
       .then(res => {
+        console.log(res[0]);
         this.setState({
-          productData: res
+          productData: res[0].data, // here we set state the data array
+          pageName: res[0].name
         });
       })
       .catch(error => {
         console.log(error);
         this.setState({
           ...this.state,
-          isError: true
+          error // here we set state occurred error
         });
       });
   }
@@ -32,16 +34,14 @@ class Contents extends Component {
   };
 
   render() {
-    const stateData = this.state;
-    console.log(stateData.productData.test);
-    return (
-      <>
-        <RenderByItemList
-          curPage={this.props.curPage}
-          data={stateData.productData}
-        />
-      </>
-    );
+    const { productData, error } = this.state;
+    console.log("In the Render : [state] =", productData,"[props] = ",this.props.curPage);
+
+    if (productData && productData.length) {
+      return <RenderByItemList curPage={this.props.curPage} data={productData} />;
+    } else {
+      return !!error || "loading";
+    }
   }
 }
 
@@ -76,16 +76,21 @@ const Jumbo = () => {
 // Product List
 
 const ItemBox = props => {
-  const titleName = (name) =>{
+
+  const titleName = name => {
     switch (name) {
-      case "beef": return "소고기";
-      case "pork" : return "돼지고기";
-      case "sale" : return "SALE";
-      case "other" : return "기타";
+      case "beef":
+        return "소고기";
+      case "pork":
+        return "돼지고기";
+      case "sale":
+        return "SALE";
+      case "else":
+        return "기타";
       default:
         break;
     }
-  }
+  };
   return (
     <>
       <div
@@ -101,12 +106,12 @@ const ItemBox = props => {
             className="text-center font-weight-bold pt-5"
             style={itemBoxTitle}
           >
-            {titleName(props.item.name)}
+            {titleName(props.curPage)}
           </h2>
         </div>
         <div className="rounded text-center d-inline container ml-4">
           <div className="row justify-content-center text-center">
-            <ItemCard data={props.item.data}/>
+            <ItemCard data={props.data} />
           </div>
         </div>
       </div>
@@ -118,20 +123,21 @@ const ItemBox = props => {
 
 // Render each product
 
-const ItemCard = (props) => {
-  let a = [0, 1, 2, 3, 4, 5];
+const ItemCard = props => {
+  let a = props.data;
+
   return a.map((a, index) => {
-    console.log(a)
+    console.log(a);
     return (
       <div className="card col-md-4 m-3" style={itemCardWidth} key={index}>
         <img src="./scriptImage/pork.png" className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">
-            <b>삼겹살</b>
+            <b>{a.productName}</b>
           </h5>
           <p className="card-text">
-            가격 : 8,000 ₩ <br />
-            등급 : 1++
+            가격 : {numberWithCommas(a.price)} ₩ <br />
+            등급 : {a.grade}
           </p>
           <a href="/" className="btn btn-primary">
             상품 보기
@@ -145,50 +151,48 @@ const ItemCard = (props) => {
 // Different Render by Current Page
 
 const RenderByItemList = props => {
-  const e = props.curPage;
-  const data = props.data;
-  console.log("renderbyitemList", data.data);
-  switch (e) {
+  console.log("In the renderbyitemList : ", props.data, props.curPage);
+  switch (props.curPage) {
     case "main": {
       return (
         <>
           <Jumbo />
-          <ItemBox item={itemList[0]} />
-          <ItemBox item={itemList[1]} lastItemBox />
+          <ItemBox data={props.data} curPage = {props.curPage} />
+          <ItemBox data={props.data} curPage = {props.curPage} lastItemBox />
         </>
       );
     }
     case "pork": {
       return (
         <>
-          <ItemBox item={itemList[0]} />
-          {/* <ItemBox item={itemList[1]} lastItemBox /> */}
+          <ItemBox data={props.data} curPage = {props.curPage} />
+          <ItemBox data={props.data} curPage = {props.curPage} />
         </>
       );
     }
     case "beef": {
-        return(
-          <>
-            <ItemBox item={data} lastItemBox />
-          </>
-        )
+      return (
+        <>
+          <ItemBox data={props.data} curPage = {props.curPage} lastItemBox />
+        </>
+      );
     }
     case "sale": {
       return (
         <>
           {/* <ItemBox item={itemList[0]} /> */}
-          <ItemBox item={itemList[1]} lastItemBox />
+          <ItemBox data={props.data} curPage = {props.curPage} lastItemBox/>
         </>
       );
     }
     case "else": {
       return (
         <>
-          <ItemBox item={itemList[0]} />
-          <ItemBox item={itemList[1]} lastItemBox />
+          <ItemBox data={props.data} curPage = {props.curPage} />
+          <ItemBox data={props.data} curPage = {props.curPage} lastItemBox/>
         </>
       );
-    };
+    }
     default: {
       return (
         <>
@@ -200,6 +204,11 @@ const RenderByItemList = props => {
     }
   }
 };
+
+function numberWithCommas(x) {
+  return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 
 // Styles Apply By Object
 
