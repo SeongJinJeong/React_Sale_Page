@@ -136,10 +136,12 @@ const ItemCard = props => {
     console.log(a);
     return (
       <div className="card col-md-4 m-3" style={itemCardWidth} key={index}>
+        {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
         <img src="./scriptImage/pork.png" className="card-img-top" alt="..." />
         <div className="card-body">
           <h5 className="card-title">
             <b>{a.productName}</b>
+            
           </h5>
           <p className="card-text">
             가격 : {numberWithCommas(a.price)} ₩ <br />
@@ -248,5 +250,6 @@ const itemBoxStyle = {
 const itemBoxTitle = {
   color: "#2b2b28"
 };
+
 
 export default Contents;
