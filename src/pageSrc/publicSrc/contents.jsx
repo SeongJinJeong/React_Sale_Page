@@ -10,11 +10,16 @@ class Contents extends Component {
   componentDidMount() {
     this._callAPI()
       .then(res => {
-        console.log(res[0]);
-        this.setState({
-          productData: res[0].data, // here we set state the data array
-          pageName: res[0].name
-        });
+        if (this.props.curPage == "main" || this.props.curPage == "sale") {
+          console.log(res);
+          this.setState({
+            productData: res
+          });
+        } else {
+          this.setState({
+            productData: res[0].data // here we set state the data array
+          });
+        }
       })
       .catch(error => {
         console.log(error);
@@ -117,7 +122,7 @@ const ItemBox = props => {
         </div>
         <div className="rounded text-center d-inline container ml-4">
           <div className="row justify-content-center text-center">
-            <ItemCard data={props.data} />
+            <ItemCard data={props.data} curPage={props.curPage} />
           </div>
         </div>
       </div>
@@ -132,28 +137,62 @@ const ItemBox = props => {
 const ItemCard = props => {
   let a = props.data;
 
-  return a.map((a, index) => {
-    console.log(a);
-    return (
-      <div className="card col-md-4 m-3" style={itemCardWidth} key={index}>
-        {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
-        <img src="./scriptImage/pork.png" className="card-img-top" alt="..." />
-        <div className="card-body">
-          <h5 className="card-title">
-            <b>{a.productName}</b>
-            
-          </h5>
-          <p className="card-text">
-            가격 : {numberWithCommas(a.price)} ₩ <br />
-            등급 : {a.grade}
-          </p>
-          <a href="/" className="btn btn-primary">
-            상품 보기
-          </a>
+  if (props.curPage == "main" || props.curPage == "sale") {
+    return a.map((a, index) => {
+      // console.log("Sort Each Category's Array : ", a);
+      return a.map((a, index) => {
+        console.log("Each Catergory : ", a);
+        return (
+          <div className="card col-md-4 m-3" style={itemCardWidth} key={index}>
+            {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
+            <img
+              src="./scriptImage/pork.png"
+              className="card-img-top"
+              alt="..."
+            />
+            <div className="card-body">
+              <h5 className="card-title">
+                <b>{a.productName}</b>
+              </h5>
+              <p className="card-text">
+                가격 : {numberWithCommas(a.price)} ₩ <br />
+                등급 : {a.grade}
+              </p>
+              <a href="/" className="btn btn-primary">
+                상품 보기
+              </a>
+            </div>
+          </div>
+        );
+      });
+    });
+  } else {
+    return a.map((a, index) => {
+      console.log(a);
+      return (
+        <div className="card col-md-4 m-3" style={itemCardWidth} key={index}>
+          {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
+          <img
+            src="./scriptImage/pork.png"
+            className="card-img-top"
+            alt="..."
+          />
+          <div className="card-body">
+            <h5 className="card-title">
+              <b>{a.productName}</b>
+            </h5>
+            <p className="card-text">
+              가격 : {numberWithCommas(a.price)} ₩ <br />
+              등급 : {a.grade}
+            </p>
+            <a href="/" className="btn btn-primary">
+              상품 보기
+            </a>
+          </div>
         </div>
-      </div>
-    );
-  });
+      );
+    });
+  }
 };
 
 // Different Render by Current Page
@@ -165,7 +204,6 @@ const RenderByItemList = props => {
       return (
         <>
           <Jumbo />
-          <ItemBox data={props.data} curPage={props.curPage} />
           <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
         </>
       );
@@ -223,9 +261,9 @@ function numberWithCommas(x) {
 // Styles Apply By Object
 
 const loadingStyle = {
-  textAlign : "center",
-  fontWeight : "bold"
-}
+  textAlign: "center",
+  fontWeight: "bold"
+};
 
 const jumboImg = {
   height: "320px",
@@ -250,6 +288,5 @@ const itemBoxStyle = {
 const itemBoxTitle = {
   color: "#2b2b28"
 };
-
 
 export default Contents;

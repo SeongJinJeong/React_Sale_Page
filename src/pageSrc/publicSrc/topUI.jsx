@@ -80,16 +80,16 @@ const WebTopUI = props => {
               {MenuList("sale")}
               {MenuList("기타")}
             </ul>
-            <form className="form-inline row">
+            <form className="form-inline row" action="/search"method="post">
               <input
                 className="form-control col-9"
                 type="text"
                 placeholder="검색어를 입력하세요"
                 aria-label="Search"
+                name="word"
               ></input>
               <button className="btn btn-info col-3" type="submit">
-                {" "}
-                검색{" "}
+                검색
               </button>
             </form>
           </div>
