@@ -137,7 +137,7 @@ const ItemBox = props => {
 const ItemCard = props => {
   let a = props.data;
 
-  if (props.curPage == "main" || props.curPage == "sale") {
+  if (props.curPage == "main") {
     return a.map((a, index) => {
       // console.log("Sort Each Category's Array : ", a);
       return a.map((a, index) => {
@@ -164,6 +164,41 @@ const ItemCard = props => {
             </div>
           </div>
         );
+      });
+    });
+  } else if (props.curPage == "sale") {
+    return a.map((a, index) => {
+      // console.log("Sort Each Category's Array : ", a);
+      return a.map((a, index) => {
+        console.log("Each Catergory : ", a);
+        if (a.sale == true) {
+          return (
+            <div
+              className="card col-md-4 m-3"
+              style={itemCardWidth}
+              key={index}
+            >
+              {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
+              <img
+                src="./scriptImage/pork.png"
+                className="card-img-top"
+                alt="..."
+              />
+              <div className="card-body">
+                <h5 className="card-title">
+                  <b>{a.productName}</b>
+                </h5>
+                <p className="card-text">
+                  가격 : {numberWithCommas(a.price)} ₩ <br />
+                  등급 : {a.grade}
+                </p>
+                <a href="/" className="btn btn-primary">
+                  상품 보기
+                </a>
+              </div>
+            </div>
+          );
+        }
       });
     });
   } else {
