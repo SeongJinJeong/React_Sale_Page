@@ -4,15 +4,22 @@ class footer extends Component {
   render() {
     return (
       <div
-        className="text-center sticky-bottom border-top border-dark pt-1"
+        className="text-center sticky-bottom border-top border-dark"
         style={footerStyle}
       >
-        <p>All Copyrights Deserved from Son...haha</p>
+        <p style={footerStyle}>
+          <a href="http://naver.me/5qOzvbD4">
+            주소 : 서울 송파구 백제고분로31길 25
+          </a>
+        </p>
+        <p style={footerStyle}>All Copyrights Deserved from Seong Jin Jeong</p>
       </div>
     );
   }
 }
 
-const footerStyle = {};
+const footerStyle = {
+  margin: 0
+};
 
 export default footer;

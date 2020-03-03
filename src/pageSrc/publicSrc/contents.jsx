@@ -249,7 +249,6 @@ const RenderByItemList = props => {
     case "pork": {
       return (
         <>
-          <ItemBox data={props.data} curPage={props.curPage} />
           <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
         </>
       );
@@ -257,7 +256,6 @@ const RenderByItemList = props => {
     case "beef": {
       return (
         <>
-          <ItemBox data={props.data} curPage={props.curPage} />
           <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
         </>
       );
@@ -273,7 +271,6 @@ const RenderByItemList = props => {
     case "else": {
       return (
         <>
-          <ItemBox data={props.data} curPage={props.curPage} />
           <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
         </>
       );
