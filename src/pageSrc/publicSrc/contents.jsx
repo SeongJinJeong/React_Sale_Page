@@ -208,7 +208,7 @@ const ItemCard = props => {
         <div className="card col-md-4 m-3" style={itemCardWidth} key={index}>
           {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
           <img
-            src="./scriptImage/pork.png"
+            src={a.img ? a.img : "./scriptImage/pork.png"}
             className="card-img-top"
             alt="..."
           />
