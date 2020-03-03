@@ -143,7 +143,7 @@ const ItemCard = props => {
       return a.map((a, index) => {
         console.log("Each Catergory : ", a);
         return (
-          <div className="card col-md-4 m-3" style={itemCardWidth} key={index}>
+          <div className="card col-md-4 m-3" style={itemCardStyle} key={index}>
             {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
             <img
               src={a.img ? a.img : "./scriptImage/pork.png"}
@@ -176,7 +176,7 @@ const ItemCard = props => {
           return (
             <div
               className="card col-md-4 m-3"
-              style={itemCardWidth}
+              style={itemCardStyle}
               key={index}
             >
               {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
@@ -207,7 +207,7 @@ const ItemCard = props => {
     return a.map((a, index) => {
       console.log(a);
       return (
-        <div className="card col-md-4 m-3" style={itemCardWidth} key={index}>
+        <div className="card col-md-4 m-3" style={itemCardStyle} key={index}>
           {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
           <img
             src={a.img ? a.img : "./scriptImage/pork.png"}
@@ -314,7 +314,7 @@ const jumboColor = {
   color: "white"
 };
 
-const itemCardWidth = {
+const itemCardStyle = {
   maxWidth: "300px"
 };
 
