@@ -146,9 +146,10 @@ const ItemCard = props => {
           <div className="card col-md-4 m-3" style={itemCardWidth} key={index}>
             {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
             <img
-              src="./scriptImage/pork.png"
+              src={a.img ? a.img : "./scriptImage/pork.png"}
               className="card-img-top"
               alt="..."
+              style={itemCardImg}
             />
             <div className="card-body">
               <h5 className="card-title">
@@ -180,9 +181,10 @@ const ItemCard = props => {
             >
               {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
               <img
-                src="./scriptImage/pork.png"
+                src={a.img ? a.img : "./scriptImage/pork.png"}
                 className="card-img-top"
                 alt="..."
+                style={itemCardImg}
               />
               <div className="card-body">
                 <h5 className="card-title">
@@ -211,6 +213,7 @@ const ItemCard = props => {
             src={a.img ? a.img : "./scriptImage/pork.png"}
             className="card-img-top"
             alt="..."
+            style={itemCardImg}
           />
           <div className="card-body">
             <h5 className="card-title">
@@ -313,6 +316,17 @@ const jumboColor = {
 
 const itemCardWidth = {
   maxWidth: "300px"
+};
+
+const itemCardImg = {
+  display: "block",
+  marginLeft: "auto",
+  marginRight: "auto",
+  marginTop: "20px",
+
+  borderRadius: "30%",
+  maxWidth: "200px",
+  maxHeight: "150px"
 };
 
 const itemBoxStyle = {
