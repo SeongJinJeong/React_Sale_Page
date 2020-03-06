@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 
 class topUI extends Component {
-  
   state = {
     loginStatus: false,
     dump: "",
@@ -39,7 +38,7 @@ class topUI extends Component {
 
   render() {
     const responseData = this.state;
-    console.log(responseData.dump.express)
+    console.log(responseData.dump.express);
     return (
       <>
         <WebTopUI data={responseData} />
@@ -80,7 +79,7 @@ const WebTopUI = props => {
               {MenuList("sale")}
               {MenuList("기타")}
             </ul>
-            <form className="form-inline row" action="/search"method="post">
+            <form className="form-inline row" action="/search" method="get">
               <input
                 className="form-control col-9"
                 type="text"

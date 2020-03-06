@@ -10,8 +10,11 @@ class Contents extends Component {
   componentDidMount() {
     this._callAPI()
       .then(res => {
-        if (this.props.curPage == "main" || this.props.curPage == "sale") {
-          console.log(res);
+        if (
+          this.props.curPage == "main" ||
+          this.props.curPage == "sale" ||
+          this.props.curPage == "search"
+        ) {
           this.setState({
             productData: res
           });
@@ -31,11 +34,21 @@ class Contents extends Component {
   }
 
   _callAPI = async () => {
-    const response = await fetch(`api/${this.props.curPage}`);
-    const data = response.json();
-    if (response.status !== 200) throw Error(data.message);
+    if (this.props.curPage !== "search") {
+      const response = await fetch(`api/${this.props.curPage}`);
+      const data = response.json();
+      if (response.status !== 200) throw Error(data.message);
 
-    return data;
+      return data;
+    } else {
+      const response = await fetch(
+        `api/${this.props.curPage}?word=${this.props.word}`
+      );
+      const data = response.json();
+      if (response.status !== 200) throw Error(data.message);
+
+      return data;
+    }
   };
 
   render() {
@@ -44,7 +57,9 @@ class Contents extends Component {
       "In the Render : [state] =",
       productData,
       "[props] = ",
-      this.props.curPage
+      this.props.curPage,
+      " Query : ",
+      this.props.word
     );
 
     if (productData && productData.length) {
@@ -98,6 +113,8 @@ const ItemBox = props => {
         return <p id="Sale">SALE</p>;
       case "else":
         return "기타";
+      case "search":
+        return "검색 결과";
       default:
         break;
     }
@@ -141,7 +158,6 @@ const ItemCard = props => {
     return a.map((a, index) => {
       // console.log("Sort Each Category's Array : ", a);
       return a.map((a, index) => {
-        console.log("Each Catergory : ", a);
         return (
           <div className="card col-md-4 m-3" style={itemCardStyle} key={index}>
             {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
@@ -171,7 +187,6 @@ const ItemCard = props => {
     return a.map((a, index) => {
       // console.log("Sort Each Category's Array : ", a);
       return a.map((a, index) => {
-        console.log("Each Catergory : ", a);
         if (a.sale == true) {
           return (
             <div
@@ -205,7 +220,6 @@ const ItemCard = props => {
     });
   } else {
     return a.map((a, index) => {
-      console.log(a);
       return (
         <div className="card col-md-4 m-3" style={itemCardStyle} key={index}>
           {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
@@ -268,6 +282,13 @@ const RenderByItemList = props => {
       );
     }
     case "else": {
+      return (
+        <>
+          <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
+        </>
+      );
+    }
+    case "search": {
       return (
         <>
           <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
