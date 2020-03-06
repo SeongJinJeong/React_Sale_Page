@@ -161,6 +161,11 @@ const ItemCard = props => {
         return (
           <div className="card col-md-4 m-3" style={itemCardStyle} key={index}>
             {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
+            {a.sale ? (
+              <p id="Sale" style={itemCardSale}>
+                Sale
+              </p>
+            ) : null}
             <img
               src={a.img ? a.img : "./scriptImage/pork.png"}
               className="card-img-top"
@@ -175,9 +180,6 @@ const ItemCard = props => {
                 가격 : {numberWithCommas(a.price)} ₩ <br />
                 등급 : {a.grade}
               </p>
-              <a href="/" className="btn btn-primary">
-                상품 보기
-              </a>
             </div>
           </div>
         );
@@ -195,6 +197,9 @@ const ItemCard = props => {
               key={index}
             >
               {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
+              {/* <p id="Sale" style={itemCardSale}>
+                Sale
+              </p> */}
               <img
                 src={a.img ? a.img : "./scriptImage/pork.png"}
                 className="card-img-top"
@@ -209,9 +214,6 @@ const ItemCard = props => {
                   가격 : {numberWithCommas(a.price)} ₩ <br />
                   등급 : {a.grade}
                 </p>
-                <a href="/" className="btn btn-primary">
-                  상품 보기
-                </a>
               </div>
             </div>
           );
@@ -223,6 +225,11 @@ const ItemCard = props => {
       return (
         <div className="card col-md-4 m-3" style={itemCardStyle} key={index}>
           {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
+          {a.sale ? (
+            <p id="Sale" style={itemCardSale}>
+              Sale
+            </p>
+          ) : null}
           <img
             src={a.img ? a.img : "./scriptImage/pork.png"}
             className="card-img-top"
@@ -237,9 +244,6 @@ const ItemCard = props => {
               가격 : {numberWithCommas(a.price)} ₩ <br />
               등급 : {a.grade}
             </p>
-            <a href="/" className="btn btn-primary">
-              상품 보기
-            </a>
           </div>
         </div>
       );
@@ -343,6 +347,11 @@ const itemCardImg = {
   borderRadius: "30%",
   maxWidth: "200px",
   maxHeight: "150px"
+};
+
+const itemCardSale = {
+  fontSize: "30px",
+  fontWeight: "bold"
 };
 
 const itemBoxStyle = {
