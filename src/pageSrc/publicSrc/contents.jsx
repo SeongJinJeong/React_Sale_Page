@@ -170,14 +170,21 @@ const ItemCard = props => {
               src={a.img ? a.img : "./scriptImage/pork.png"}
               className="card-img-top"
               alt="..."
-              style={itemCardImg}
+              style={a.sale ? itemCardImg : itemcardImg2}
             />
             <div className="card-body">
               <h5 className="card-title">
                 <b>{a.productName}</b>
               </h5>
               <p className="card-text">
-                가격 : {numberWithCommas(a.price)} ₩ <br />
+                가격 :
+                <p style={a.sale ? priceLineThrough : priceMargin}>
+                  {numberWithCommas(a.price)} ₩
+                </p>
+                {a.sale ? (
+                  <p style={priceMargin}>{numberWithCommas(a.salePrice)} ₩</p>
+                ) : null}
+                <br />
                 등급 : {a.grade}
               </p>
             </div>
@@ -350,10 +357,31 @@ const itemCardImg = {
   maxHeight: "150px"
 };
 
+const itemcardImg2 = {
+  display: "block",
+  marginLeft: "auto",
+  marginRight: "auto",
+  marginTop: "50px",
+
+  borderRadius: "30%",
+  maxWidth: "200px",
+  maxHeight: "150px"
+};
+
 const itemCardSale = {
   fontSize: "30px",
   fontWeight: "bold",
   marginBottom: "-20px"
+};
+
+const priceLineThrough = {
+  textDecoration: "line-through",
+  margin: 0
+};
+
+const priceMargin = {
+  margin: 0,
+  fontWeight: "bold"
 };
 
 const itemBoxStyle = {
