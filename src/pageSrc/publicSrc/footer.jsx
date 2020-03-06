@@ -12,7 +12,10 @@ class footer extends Component {
             주소 : 서울 송파구 백제고분로31길 25
           </a>
         </p>
-        <p style={footerStyle}>All Copyrights Deserved from Seong Jin Jeong</p>
+        <p className="d-inline" style={footerStyle}>
+          All Copyrights Deserved from Seong Jin Jeong /
+        </p>
+        <p className="d-inline"> Copyrights © 2020 Jeong Seong Jin</p>
       </div>
     );
   }

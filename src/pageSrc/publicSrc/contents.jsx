@@ -263,7 +263,6 @@ const RenderByItemList = props => {
     case "sale": {
       return (
         <>
-          <ItemBox data={props.data} curPage={props.curPage} />
           <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
         </>
       );
@@ -279,8 +278,7 @@ const RenderByItemList = props => {
       return (
         <>
           <Jumbo />
-          <ItemBox item={itemList[0]} />
-          <ItemBox item={itemList[1]} lastItemBox />
+          <p>Can't find resoure.. Error Occured!</p>
         </>
       );
     }
