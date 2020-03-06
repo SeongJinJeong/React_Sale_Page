@@ -335,7 +335,8 @@ const jumboColor = {
 };
 
 const itemCardStyle = {
-  maxWidth: "300px"
+  maxWidth: "300px",
+  height: "auto"
 };
 
 const itemCardImg = {
@@ -351,7 +352,8 @@ const itemCardImg = {
 
 const itemCardSale = {
   fontSize: "30px",
-  fontWeight: "bold"
+  fontWeight: "bold",
+  marginBottom: "-20px"
 };
 
 const itemBoxStyle = {
