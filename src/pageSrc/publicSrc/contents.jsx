@@ -239,14 +239,21 @@ const ItemCard = props => {
             src={a.img ? a.img : "./scriptImage/pork.png"}
             className="card-img-top"
             alt="..."
-            style={itemCardImg}
+            style={a.sale ? itemCardImg : itemcardImg2}
           />
           <div className="card-body">
             <h5 className="card-title">
               <b>{a.productName}</b>
             </h5>
             <p className="card-text">
-              가격 : {numberWithCommas(a.price)} ₩ <br />
+              가격 :{" "}
+              <p style={a.sale ? priceLineThrough : priceMargin}>
+                {numberWithCommas(a.price)} ₩
+              </p>
+              {a.sale ? (
+                <p style={priceMargin}>{numberWithCommas(a.salePrice)} ₩</p>
+              ) : null}
+              <br />
               등급 : {a.grade}
             </p>
           </div>
