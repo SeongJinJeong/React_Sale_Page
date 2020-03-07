@@ -29,7 +29,7 @@ class topUI extends Component {
   }
 
   callApi = async () => {
-    const response = await fetch("/api/hello");
+    const response = await fetch(`15.165.86.96/api/hello`);
     const data = response.json();
     if (response.status !== 200) throw Error(data.message);
 

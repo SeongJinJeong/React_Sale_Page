@@ -34,7 +34,9 @@ class Contents extends Component {
 
   _callAPI = async () => {
     if (this.props.curPage !== "search") {
-      const response = await fetch(`api/${this.props.curPage}`);
+      const response = await fetch(
+        `https://cors-anywhere.herokuapp.com/http://15.165.86.96:5000/api/${this.props.curPage}`
+      );
       const data = response.json();
       if (response.status !== 200) throw Error(data.message);
 
