@@ -43,7 +43,7 @@ class Contents extends Component {
       return data;
     } else {
       const response = await fetch(
-        `api/${this.props.curPage}?word=${this.props.word}`
+        `https://cors-anywhere.herokuapp.com/http://15.165.86.96:5000/api/${this.props.curPage}?word=${this.props.word}`
       );
       const data = response.json();
       if (response.status !== 200) throw Error(data.message);
