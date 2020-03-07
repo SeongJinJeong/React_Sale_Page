@@ -17,7 +17,7 @@ class topUI extends Component {
   componentDidMount() {
     this.callApi()
       .then(res => {
-        console.log(res);
+        // console.log(res);
         this.setState({
           loginStatus: false,
           dump: res
@@ -38,7 +38,7 @@ class topUI extends Component {
 
   render() {
     const responseData = this.state;
-    console.log(responseData.dump.express);
+    // console.log(responseData.dump.express);
     return (
       <>
         <WebTopUI data={responseData} />

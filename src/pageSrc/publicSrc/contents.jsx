@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 
-const itemList = ["돼지고기", "소고기", "닭&오리", "Sale", "연락처"];
 class Contents extends Component {
   state = {
     productData: [],
@@ -11,9 +10,9 @@ class Contents extends Component {
     this._callAPI()
       .then(res => {
         if (
-          this.props.curPage == "main" ||
-          this.props.curPage == "sale" ||
-          this.props.curPage == "search"
+          this.props.curPage === "main" ||
+          this.props.curPage === "sale" ||
+          this.props.curPage === "search"
         ) {
           this.setState({
             productData: res
@@ -53,14 +52,14 @@ class Contents extends Component {
 
   render() {
     const { productData, error } = this.state;
-    console.log(
-      "In the Render : [state] =",
-      productData,
-      "[props] = ",
-      this.props.curPage,
-      " Query : ",
-      this.props.word
-    );
+    // console.log(
+    //   "In the Render : [state] =",
+    //   productData,
+    //   "[props] = ",
+    //   this.props.curPage,
+    //   " Query : ",
+    //   this.props.word
+    // );
 
     if (productData && productData.length) {
       return (
@@ -256,7 +255,7 @@ const ItemCard = props => {
 };
 // Different Render by Current Page
 const RenderByItemList = props => {
-  console.log("In the renderbyitemList : ", props.data, props.curPage);
+  //   console.log("In the renderbyitemList : ", props.data, props.curPage);
   switch (props.curPage) {
     case "main": {
       return (
