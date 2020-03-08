@@ -216,8 +216,8 @@ const ItemCard = props => {
                   <b>{a.productName}</b>
                 </h5>
                 <p className="card-text">
-                  가격 : {numberWithCommas(a.price)} ₩ <br />
-                  등급 : {a.grade}
+                  가격 : {numberWithCommas(a.price)} ₩ <br />`
+                  {a.grade ? `등급 : ${a.grade}` : null}
                 </p>
               </div>
             </div>
