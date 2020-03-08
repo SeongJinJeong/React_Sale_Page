@@ -177,7 +177,8 @@ const ItemCard = props => {
               <p className="card-text">
                 가격 :
                 <p style={a.sale ? priceLineThrough : priceMargin}>
-                  {numberWithCommas(a.price)} ₩
+                  {numberWithCommas(a.price)} ₩{" "}
+                  {a.comment ? `(${a.comment})` : null}
                 </p>
                 {a.sale ? (
                   <p style={priceMargin}>{numberWithCommas(a.salePrice)} ₩</p>
@@ -216,7 +217,8 @@ const ItemCard = props => {
                   <b>{a.productName}</b>
                 </h5>
                 <p className="card-text">
-                  가격 : {numberWithCommas(a.price)} ₩ <br />`
+                  가격 : {numberWithCommas(a.price)} ₩{" "}
+                  {a.comment ? `(${a.comment})` : null} <br />
                   {a.grade ? `등급 : ${a.grade}` : null}
                 </p>
               </div>
@@ -249,6 +251,7 @@ const ItemCard = props => {
               가격 :{" "}
               <p style={a.sale ? priceLineThrough : priceMargin}>
                 {numberWithCommas(a.price)} ₩
+                {a.comment ? `(${a.comment})` : null}
               </p>
               {a.sale ? (
                 <p style={priceMargin}>{numberWithCommas(a.salePrice)} ₩</p>
