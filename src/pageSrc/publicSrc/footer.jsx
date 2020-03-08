@@ -8,9 +8,8 @@ class footer extends Component {
         style={footerStyle}
       >
         <p style={footerStyle}>
-          <a href="http://naver.me/5qOzvbD4">
-            주소 : 서울 송파구 백제고분로31길 25
-          </a>
+          주소 :
+          <a href="http://naver.me/5qOzvbD4">서울 송파구 백제고분로31길 25</a>
         </p>
         <p className="d-inline" style={footerStyle}>
           All Copyrights Deserved from Seong Jin Jeong /
