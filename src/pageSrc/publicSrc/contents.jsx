@@ -177,8 +177,8 @@ const ItemCard = props => {
               <p className="card-text">
                 가격 :
                 <p style={a.sale ? priceLineThrough : priceMargin}>
-                  {numberWithCommas(a.price)} ₩ /
-                  {a.comment ? `(${a.comment})` : null}
+                  {numberWithCommas(a.price)} ₩{" "}
+                  <p style={unitStyle}>{a.unit ? ` / ${a.unit}` : null}</p>
                 </p>
                 {a.sale ? (
                   <p style={priceMargin}>{numberWithCommas(a.salePrice)} ₩</p>
@@ -219,8 +219,8 @@ const ItemCard = props => {
                 <p className="card-text">
                   가격 :{" "}
                   <p style={a.sale ? priceLineThrough : priceMargin}>
-                    {numberWithCommas(a.price)} ₩ /
-                    {a.comment ? `(${a.comment})` : null}
+                    {numberWithCommas(a.price)} ₩{" "}
+                    <p style={unitStyle}>{a.unit ? ` / ${a.unit}` : null}</p>
                   </p>
                   {a.sale ? (
                     <p style={priceMargin}>{numberWithCommas(a.salePrice)} ₩</p>
@@ -257,8 +257,8 @@ const ItemCard = props => {
             <p className="card-text">
               가격 :{" "}
               <p style={a.sale ? priceLineThrough : priceMargin}>
-                {numberWithCommas(a.price)} ₩ /
-                {a.comment ? `(${a.comment})` : null}
+                {numberWithCommas(a.price)} ₩{" "}
+                <p style={unitStyle}>{a.unit ? ` / ${a.unit}` : null}</p>
               </p>
               {a.sale ? (
                 <p style={priceMargin}>{numberWithCommas(a.salePrice)} ₩</p>
@@ -381,6 +381,12 @@ const priceLineThrough = {
 const priceMargin = {
   margin: 0,
   fontWeight: "bold"
+};
+
+const unitStyle = {
+  color: "green",
+  fontWeight: "normal",
+  display: "inline"
 };
 const itemBoxStyle = {
   backgroundColor: "#fff",
