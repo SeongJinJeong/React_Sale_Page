@@ -177,11 +177,11 @@ const ItemCard = props => {
               <p className="card-text">
                 가격 :
                 <p style={a.sale ? priceLineThrough : priceMargin}>
-                  {numberWithCommas(a.price)} ₩{" "}
+                  ₩ {numberWithCommas(a.price)}{" "}
                   <p style={unitStyle}>{a.unit ? ` / ${a.unit}` : null}</p>
                 </p>
                 {a.sale ? (
-                  <p style={priceMargin}>{numberWithCommas(a.salePrice)} ₩</p>
+                  <p style={priceMargin}>₩ {numberWithCommas(a.salePrice)} </p>
                 ) : null}
                 <br />
                 {a.grade ? `등급 : ${a.grade}` : null}
