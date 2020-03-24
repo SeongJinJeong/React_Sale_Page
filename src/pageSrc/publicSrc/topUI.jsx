@@ -119,7 +119,7 @@ const MenuList = (e, data) => {
       menu = "sale";
       break;
     case "양념육":
-      menu = "seoson";
+      menu = "season";
       break;
   }
   if (e === "sale") {

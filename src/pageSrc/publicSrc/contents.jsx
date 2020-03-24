@@ -116,6 +116,8 @@ const ItemBox = props => {
         return "기타";
       case "search":
         return "검색 결과";
+      case "season":
+        return "양념육";
       default:
         break;
     }
@@ -315,6 +317,13 @@ const RenderByItemList = props => {
       );
     }
     case "search": {
+      return (
+        <>
+          <ItemBox data={props.data} curPage={props.curPage} lastItemBox />
+        </>
+      );
+    }
+    case "season": {
       return (
         <>
           <ItemBox data={props.data} curPage={props.curPage} lastItemBox />

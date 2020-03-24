@@ -3,7 +3,7 @@ import TopUI from "./publicSrc/topUI";
 import Contents from "./publicSrc/contents";
 import Footer from "./publicSrc/footer";
 
-function Else() {
+function Season() {
   return (
     <>
       <TopUI />
@@ -13,4 +13,4 @@ function Else() {
   );
 }
 
-export default Else;
+export default Season;
