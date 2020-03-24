@@ -6,6 +6,7 @@ import Pork from "./pageSrc/pork";
 import Sale from "./pageSrc/sale";
 import Main from "./pageSrc/main";
 import Search from "./pageSrc/search";
+import Season from "./pageSrc/season";
 
 const Routes = () => {
   return (
@@ -13,6 +14,7 @@ const Routes = () => {
       <Route exact path="/" component={Main} />
       <Route path="/beef" component={Beef} />
       <Route path="/pork" component={Pork} />
+      <Route path="/season" component={Season} />
       <Route path="/sale" component={Sale} />
       <Route path="/else" component={Else} />
       <Route path="/search" component={Search} />

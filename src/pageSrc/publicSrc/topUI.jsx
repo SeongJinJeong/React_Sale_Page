@@ -79,6 +79,7 @@ const WebTopUI = props => {
               {MenuList("소고기")}
               {MenuList("돼지고기")}
               {MenuList("sale")}
+              {MenuList("양념육")}
               {MenuList("기타")}
             </ul>
             <form className="form-inline row" action="/search" method="get">
@@ -116,6 +117,9 @@ const MenuList = (e, data) => {
       break;
     case "sale":
       menu = "sale";
+      break;
+    case "양념육":
+      menu = "seoson";
       break;
   }
   if (e === "sale") {
