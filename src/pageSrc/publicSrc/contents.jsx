@@ -351,7 +351,7 @@ const loadingStyle = {
 };
 const jumboImg = {
   height: "320px",
-  backgroundImage: "url('./scriptImage/JumboImage.jpg')",
+  backgroundImage: "url('./scriptImage/jumboImage.jpg')",
   backgroundSize: "120%",
   backgroundPosition: "10% 30%"
 };
