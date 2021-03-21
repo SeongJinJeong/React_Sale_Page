@@ -46,7 +46,7 @@ class Contents extends Component {
       // );
 
       const response = await axios.get(
-        `http://localhost:5000/api/${this.props.curPage}`,
+        `http://15.165.86.96:5000/api/${this.props.curPage}`,
         { headers: { "Access-Control-Allow-Origin": "*" } }
       );
       console.log(response);
@@ -65,7 +65,7 @@ class Contents extends Component {
       //   }
       // );
       const response = await axios.get(
-        `http://localhost:5000/api/${this.props.curPage}?word=${this.props.word}`,
+        `http://15.165.86.96:5000/api/${this.props.curPage}?word=${this.props.word}`,
         {
           headers: {
             "Access-Control-Allow-Origin": "*",
