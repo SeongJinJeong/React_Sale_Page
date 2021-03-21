@@ -5,27 +5,27 @@ class topUI extends Component {
   state = {
     loginStatus: false,
     dump: "",
-    curPage: ""
+    curPage: "",
   };
 
-  handleClick = menu => {
+  handleClick = (menu) => {
     this.setState({
-      curPage: menu
+      curPage: menu,
     });
   };
 
   componentDidMount() {
-    this.callApi()
-      .then(res => {
-        // console.log(res);
-        this.setState({
-          loginStatus: false,
-          dump: res
-        });
-      })
-      .catch(error => {
-        console.log(error);
-      });
+    // this.callApi()
+    //   .then(res => {
+    //     // console.log(res);
+    //     this.setState({
+    //       loginStatus: false,
+    //       dump: res
+    //     });
+    //   })
+    //   .catch(error => {
+    //     console.log(error);
+    //   });
   }
 
   callApi = async () => {
@@ -51,13 +51,12 @@ class topUI extends Component {
 
 // Render Whole Top UI
 
-const WebTopUI = props => {
+const WebTopUI = (props) => {
   return (
     <>
       <nav
         className="navbar navbar-expand-lg navbar-light pl-5 d-flex justify-content-between border-dark border-bottom"
-        style={WebTopUIStyle}
-      >
+        style={WebTopUIStyle}>
         <div className="container pr-4">
           <Link to="/">
             <img src="./scriptImage/logo.png" alt="LOGO" style={navLogo}></img>
@@ -69,8 +68,7 @@ const WebTopUI = props => {
             data-target="#navbarsExample07XL"
             aria-controls="navbarsExample07XL"
             aria-expanded="false"
-            aria-label="Toggle navigation"
-          >
+            aria-label="Toggle navigation">
             <span className="navbar-toggler-icon"></span>
           </button>
 
@@ -88,8 +86,7 @@ const WebTopUI = props => {
                 type="text"
                 placeholder="검색어를 입력하세요"
                 aria-label="Search"
-                name="word"
-              ></input>
+                name="word"></input>
               <button className="btn btn-info col-3" type="submit">
                 검색
               </button>
@@ -129,8 +126,7 @@ const MenuList = (e, data) => {
           to={menu}
           className="nav-link font-weight-bold ml-2 mr-2"
           style={navFont}
-          id="Sale"
-        >
+          id="Sale">
           {e.toUpperCase()}
         </Link>
       </li>
@@ -141,8 +137,7 @@ const MenuList = (e, data) => {
         <Link
           to={menu}
           className="nav-link font-weight-bold ml-2 mr-2"
-          style={navFont}
-        >
+          style={navFont}>
           {e}
         </Link>
       </li>
@@ -154,16 +149,16 @@ const MenuList = (e, data) => {
 
 const navFont = {
   fontSize: "22px",
-  textDecoration: "none"
+  textDecoration: "none",
 };
 
 const navLogo = {
   width: "130px",
-  marginLeft: "-2em"
+  marginLeft: "-2em",
 };
 
 const WebTopUIStyle = {
-  backgroundColor: "#fff"
+  backgroundColor: "#fff",
 };
 
 export default topUI;

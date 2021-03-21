@@ -1,51 +1,78 @@
 import React, { Component } from "react";
+import axios from "axios";
 
 class Contents extends Component {
   state = {
     productData: [],
-    error: null
+    error: null,
   };
 
   componentDidMount() {
     this._callAPI()
-      .then(res => {
+      .then((res) => {
         if (
           this.props.curPage === "main" ||
           this.props.curPage === "sale" ||
           this.props.curPage === "search"
         ) {
           this.setState({
-            productData: res
+            productData: res,
           });
         } else {
           this.setState({
-            productData: res[0].data // here we set state the data array
+            productData: res[0].data, // here we set state the data array
           });
         }
       })
-      .catch(error => {
+      .catch((error) => {
         console.log(error);
         this.setState({
           ...this.state,
-          error // here we set state occurred error
+          error, // here we set state occurred error
         });
       });
   }
 
   _callAPI = async () => {
     if (this.props.curPage !== "search") {
-      const response = await fetch(
-        `https://cors-anywhere.herokuapp.com/http://15.165.86.96:5000/api/${this.props.curPage}`
+      // const response = await fetch(
+      //   // `https://cors-anywhere.herokuapp.com/http://15.165.86.96:5000/api/${this.props.curPage}`,
+      //   `http://localhost:5000/api/${this.props.curPage}`,
+      //   {
+      //     headers: {
+      //       "Access-Control-Allow-Origin": "*",
+      //     },
+      //   }
+      // );
+
+      const response = await axios.get(
+        `http://localhost:5000/api/${this.props.curPage}`,
+        { headers: { "Access-Control-Allow-Origin": "*" } }
       );
-      const data = response.json();
+      console.log(response);
+      const data = response.data;
       if (response.status !== 200) throw Error(data.message);
 
       return data;
     } else {
-      const response = await fetch(
-        `https://cors-anywhere.herokuapp.com/http://15.165.86.96:5000/api/${this.props.curPage}?word=${this.props.word}`
+      // const response = await fetch(
+      //   // `https://cors-anywhere.herokuapp.com/http://15.165.86.96:5000/api/${this.props.curPage}?word=${this.props.word}`,
+      //   `http://localhost:5000/api/${this.props.curPage}?word=${this.props.word}`,
+      //   {
+      //     headers: {
+      //       "Access-Control-Allow-Origin": "*",
+      //     },
+      //   }
+      // );
+      const response = await axios.get(
+        `http://localhost:5000/api/${this.props.curPage}?word=${this.props.word}`,
+        {
+          headers: {
+            "Access-Control-Allow-Origin": "*",
+          },
+        }
       );
-      const data = response.json();
+      const data = response.data;
       if (response.status !== 200) throw Error(data.message);
 
       return data;
@@ -79,8 +106,7 @@ const Jumbo = () => {
   return (
     <section
       className="jumbotron jumbotron-fluid text-center "
-      style={jumboImg}
-    >
+      style={jumboImg}>
       <div className="container">
         <h1 className="font-weight-normal" style={jumboColor}>
           어서오세요!
@@ -103,8 +129,8 @@ const Jumbo = () => {
 
 // Product List
 
-const ItemBox = props => {
-  const titleName = name => {
+const ItemBox = (props) => {
+  const titleName = (name) => {
     switch (name) {
       case "beef":
         return "소고기";
@@ -130,13 +156,11 @@ const ItemBox = props => {
             ? "border-dark mr-5 ml-5 text-center"
             : "border-dark mr-5 ml-5 text-center"
         }
-        style={itemBoxStyle}
-      >
+        style={itemBoxStyle}>
         <div>
           <h2
             className="text-center font-weight-bold pt-5"
-            style={itemBoxTitle}
-          >
+            style={itemBoxTitle}>
             {titleName(props.curPage)}
           </h2>
         </div>
@@ -152,7 +176,7 @@ const ItemBox = props => {
   );
 };
 // Render each product
-const ItemCard = props => {
+const ItemCard = (props) => {
   let a = props.data;
   if (props.curPage == "main") {
     return a.map((a, index) => {
@@ -202,8 +226,7 @@ const ItemCard = props => {
             <div
               className="card col-md-4 m-3"
               style={itemCardStyle}
-              key={index}
-            >
+              key={index}>
               {/* {a.sale? <img src="./scriptImage/sale.png" />: null } */}
               {/* <p id="Sale" style={itemCardSale}>
                 Sale
@@ -277,7 +300,7 @@ const ItemCard = props => {
   }
 };
 // Different Render by Current Page
-const RenderByItemList = props => {
+const RenderByItemList = (props) => {
   //   console.log("In the renderbyitemList : ", props.data, props.curPage);
   switch (props.curPage) {
     case "main": {
@@ -347,20 +370,20 @@ function numberWithCommas(x) {
 // Styles Apply By Object
 const loadingStyle = {
   textAlign: "center",
-  fontWeight: "bold"
+  fontWeight: "bold",
 };
 const jumboImg = {
   height: "320px",
   backgroundImage: "url('./scriptImage/jumboImage.jpg')",
   backgroundSize: "120%",
-  backgroundPosition: "10% 30%"
+  backgroundPosition: "10% 30%",
 };
 const jumboColor = {
-  color: "white"
+  color: "white",
 };
 const itemCardStyle = {
   maxWidth: "300px",
-  height: "auto"
+  height: "auto",
 };
 const itemCardImg = {
   display: "block",
@@ -369,7 +392,7 @@ const itemCardImg = {
   marginTop: "20px",
   borderRadius: "30%",
   maxWidth: "200px",
-  maxHeight: "150px"
+  maxHeight: "150px",
 };
 const itemcardImg2 = {
   display: "block",
@@ -378,32 +401,32 @@ const itemcardImg2 = {
   marginTop: "50px",
   borderRadius: "30%",
   maxWidth: "200px",
-  maxHeight: "150px"
+  maxHeight: "150px",
 };
 const itemCardSale = {
   fontSize: "30px",
   fontWeight: "bold",
-  marginBottom: "-20px"
+  marginBottom: "-20px",
 };
 const priceLineThrough = {
   textDecoration: "line-through",
-  margin: 0
+  margin: 0,
 };
 const priceMargin = {
   margin: 0,
-  fontWeight: "bold"
+  fontWeight: "bold",
 };
 
 const unitStyle = {
   color: "green",
   fontWeight: "normal",
-  display: "inline"
+  display: "inline",
 };
 const itemBoxStyle = {
   backgroundColor: "#fff",
-  "marginTop,marginBottom": "0px"
+  "marginTop,marginBottom": "0px",
 };
 const itemBoxTitle = {
-  color: "#2b2b28"
+  color: "#2b2b28",
 };
 export default Contents;
